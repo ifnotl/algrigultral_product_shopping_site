@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>检查 JSON 文件</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('china.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Parsed JSON:', data);
+                    console.log('Features:', data.features);
+                    data.features.forEach(feature => {
+                        console.log('Feature coordinates:', feature.geometry.coordinates);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error parsing JSON:', error);
+                });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
+
